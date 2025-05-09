@@ -1,0 +1,29 @@
+{
+   "name": "ingenuity-bot",
+   "version": "1.0.0",
+   "main": "src/index.ts",
+   "author": "Aliph0th <theblacklord05@gmail.com>",
+   "license": "MIT",
+   "scripts": {
+      "dev": "nodemon",
+      "build": "tsc",
+      "start": "npm run build && node dist/index.js"
+   },
+   "dependencies": {
+      "dotenv": "^16.5.0",
+      "telegraf": "^4.16.3",
+      "typescript": "^5.8.3"
+   },
+   "devDependencies": {
+      "@types/dotenv": "^6.1.1",
+      "@types/node": "^22.15.17",
+      "@typescript-eslint/eslint-plugin": "^8.32.0",
+      "@typescript-eslint/parser": "^8.32.0",
+      "eslint": "^9.26.0",
+      "eslint-config-prettier": "^10.1.5",
+      "eslint-plugin-import": "^2.31.0",
+      "eslint-plugin-prettier": "^5.4.0",
+      "nodemon": "^3.1.10",
+      "prettier": "^3.5.3"
+   }
+}
