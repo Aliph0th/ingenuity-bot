@@ -14,4 +14,4 @@ export const MESSAGES = {
       `<b>SOL ${sol.sol} (${new Date(sol.terrestrial_date).toLocaleDateString('ru')})</b>\n\n<i>Min. temperature (ground)</i>: ${sol.min_temp}° (${sol.min_gts_temp}°)\n<i>Max. temperature (ground)</i>: ${sol.max_temp}° (${sol.max_gts_temp}°)\n<i>Season</i>: ${formatSeason(sol.season)}\n<i>Pressure</i>: ${sol.pressure} Pa (${sol.pressure_string})\n<i>Absolute humidity</i>: ${sol.abs_humidity}\n<i>Wind speed (direction)</i>: ${sol.wind_speed} (${sol.wind_direction})\n<i>Atmosphere opacity</i>: ${sol.atmo_opacity}\n<i>Sunrise</i>: ${sol.sunrise}\n<i>Sunset</i>: ${sol.sunset}\n<i>UV radiation intensity</i>: ${sol.local_uv_irradiance_index}\n<i>Solar longitude</i>: ${sol.ls}`
 };
 
-export const TIMEOUT = 1 * 1000;
+export const TIMEOUT = 6 * 60 * 1000;
