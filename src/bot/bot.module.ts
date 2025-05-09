@@ -3,6 +3,7 @@ import { IBot } from './bot.interface';
 import { IConfigService } from '../config/config.interface';
 import { Command } from '../commands/command.class';
 import { StartCommand } from '../commands/start.command';
+import { WeatherCommand } from '../commands/weather.command';
 
 export class Bot implements IBot {
    private readonly bot: Telegraf;
@@ -12,7 +13,7 @@ export class Bot implements IBot {
    }
 
    private addCommands() {
-      this.commands.push(new StartCommand(this.bot));
+      this.commands.push(new StartCommand(this.bot), new WeatherCommand(this.bot));
    }
 
    launch() {
@@ -20,7 +21,9 @@ export class Bot implements IBot {
       for (const command of this.commands) {
          command.handle();
       }
-      this.bot.launch(() => console.log('Bot is running...'));
+      this.bot.launch({ dropPendingUpdates: true }, () =>
+         console.log('Bot is running...')
+      );
       process.once('SIGINT', () => this.bot.stop('SIGINT'));
       process.once('SIGTERM', () => this.bot.stop('SIGTERM'));
    }
