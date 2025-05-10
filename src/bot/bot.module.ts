@@ -4,6 +4,7 @@ import { IConfigService } from '../config/config.interface';
 import { Command } from '../commands/command.class';
 import { StartCommand } from '../commands/start.command';
 import { WeatherCommand } from '../commands/weather.command';
+import { GeoCommand } from '../commands/geo.command';
 
 export class Bot implements IBot {
    private readonly bot: Telegraf;
@@ -13,7 +14,11 @@ export class Bot implements IBot {
    }
 
    private addCommands() {
-      this.commands.push(new StartCommand(this.bot), new WeatherCommand(this.bot));
+      this.commands.push(
+         new StartCommand(this.bot),
+         new WeatherCommand(this.bot),
+         new GeoCommand(this.bot)
+      );
    }
 
    launch() {

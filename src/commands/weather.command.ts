@@ -18,7 +18,9 @@ export class WeatherCommand extends Command {
                return;
             }
             const sol = weather.soles[0];
-            await ctx.replyWithHTML(MESSAGES.WEATHER(sol));
+            await ctx.replyWithHTML(MESSAGES.WEATHER(sol), {
+               reply_parameters: { message_id: ctx.message.message_id }
+            });
          }, TIMEOUT);
       });
    }

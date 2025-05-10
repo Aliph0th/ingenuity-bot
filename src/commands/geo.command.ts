@@ -1,17 +1,17 @@
 import { Telegraf } from 'telegraf';
 import { Command } from './command.class';
-import { MESSAGES, TIMEOUT } from '../constants';
+import { TIMEOUT } from '../constants';
 
-export class StartCommand extends Command {
+export class GeoCommand extends Command {
    constructor(protected readonly bot: Telegraf) {
       super(bot);
    }
 
    handle() {
-      this.bot.start(async ctx => {
+      this.bot.command('geo', async ctx => {
          await ctx.react('👌');
          setTimeout(async () => {
-            await ctx.replyWithHTML(MESSAGES.START(ctx.from.first_name), {
+            await ctx.replyWithLocation(53.67681, 27.200133, {
                reply_parameters: { message_id: ctx.message.message_id }
             });
          }, TIMEOUT);
